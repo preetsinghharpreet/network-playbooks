@@ -7,5 +7,13 @@
       ios_facts:
       register: router_info
       
-    - debug: 
-        var: router_info 
+    #- debug: 
+    #    var: router_info 
+     
+    - name: router version
+      ios_command:
+        commands:  show version
+        
+    - name: router interface brief
+      ios_command:
+        commands: show ip interface brief
