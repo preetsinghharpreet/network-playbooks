@@ -7,4 +7,5 @@
       ios_facts:
       register: router_info
       
-    - debug: router_info 
+    - debug: 
+        var: router_info 
