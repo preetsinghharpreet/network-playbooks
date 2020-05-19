@@ -1,0 +1,10 @@
+---
+- name: play for cisco routers
+  hosts: routers
+  gather_facts: false
+  tasks:
+    - name: gathering facts
+      ios_facts:
+      register: router_info
+      
+    - debug: router_info 
