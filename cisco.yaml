@@ -3,9 +3,9 @@
   hosts: routers
   gather_facts: false
   tasks:
-    - name: gathering facts
-      ios_facts:
-      register: router_info
+    #- name: gathering facts
+    #  ios_facts:
+    #  register: router_info
       
     #- debug: 
     #    var: router_info 
@@ -13,7 +13,13 @@
     - name: router version
       ios_command:
         commands:  show version
+      register: version
+      
+    - debug: var=version 
         
     - name: router interface brief
       ios_command:
         commands: show ip interface brief
+      register: interface
+     
+    - debug: var=interface 
