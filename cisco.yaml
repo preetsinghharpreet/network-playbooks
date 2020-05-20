@@ -9,6 +9,9 @@
       
     #- debug: 
     #    var: router_info 
+    - name: printing var
+      debug:
+        var: api_vars
      
     - name: router version
       ios_command:
