@@ -1,0 +1,17 @@
+---
+- name: play for ip config
+  hosts: cisco
+  gather_facts: false
+  tasks:
+    - name: taking backup of Router NVRAM
+      ios_config:
+        backup: yes    #controller under the current dir /home/devops/networks/backup/
+      register: backup_output
+
+    - debug: var=backup_output
+
+
+    - name: renaming backup file
+      copy:
+        src: "{{ backup_output.backup_path }}"
+        dest: "./backup/{{ inventory_hostname }}-backup.config"

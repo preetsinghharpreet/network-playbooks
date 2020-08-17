@@ -1,0 +1,24 @@
+---
+- name: play1 for banner motd
+  hosts: cisco
+  gather_facts: false
+  tasks:
+    - name: set login banner to the router
+      ios_banner:
+         banner: login
+         text: |
+            ********************************************************
+            Welcome the Cisco Virtual Router
+            As per the security, login and access will be monitored
+            ********************************************************
+
+
+    - name: apply motd banner 
+      ios_banner:
+        banner: motd
+        text: >
+          Security Hardening
+          must be 
+          followed 
+          by 
+          all. 

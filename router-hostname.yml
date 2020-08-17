@@ -1,0 +1,11 @@
+---
+- name: set hostname to router
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: apply new hostname
+      ios_config:
+        lines: "hostname {{ inventory_hostname }}"    #router1 #CSR-1
+
+
+
